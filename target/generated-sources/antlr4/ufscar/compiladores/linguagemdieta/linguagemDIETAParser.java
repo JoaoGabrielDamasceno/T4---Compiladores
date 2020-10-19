@@ -318,10 +318,11 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class CrnContext extends ParserRuleContext {
-		public TerminalNode NUM_INT() { return getToken(linguagemDIETAParser.NUM_INT, 0); }
+		public Token digito;
 		public Num_identificadorContext num_identificador() {
 			return getRuleContext(Num_identificadorContext.class,0);
 		}
+		public TerminalNode NUM_INT() { return getToken(linguagemDIETAParser.NUM_INT, 0); }
 		public CrnContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -352,7 +353,7 @@ public class linguagemDIETAParser extends Parser {
 			setState(56);
 			match(T__3);
 			setState(57);
-			match(NUM_INT);
+			((CrnContext)_localctx).digito = match(NUM_INT);
 			setState(58);
 			num_identificador();
 			}
@@ -369,6 +370,7 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class Num_identificadorContext extends ParserRuleContext {
+		public Token identificador;
 		public TerminalNode NUM_INT() { return getToken(linguagemDIETAParser.NUM_INT, 0); }
 		public Num_identificadorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -396,7 +398,7 @@ public class linguagemDIETAParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(60);
-			match(NUM_INT);
+			((Num_identificadorContext)_localctx).identificador = match(NUM_INT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -411,6 +413,7 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class EspecialidadeContext extends ParserRuleContext {
+		public Token cadeia;
 		public TerminalNode CADEIA() { return getToken(linguagemDIETAParser.CADEIA, 0); }
 		public EspecialidadeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -442,7 +445,7 @@ public class linguagemDIETAParser extends Parser {
 			setState(63);
 			match(T__1);
 			setState(64);
-			match(CADEIA);
+			((EspecialidadeContext)_localctx).cadeia = match(CADEIA);
 			}
 		}
 		catch (RecognitionException re) {

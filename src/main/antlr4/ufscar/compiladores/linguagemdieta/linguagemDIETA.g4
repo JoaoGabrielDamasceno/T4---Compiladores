@@ -23,11 +23,11 @@ rodape: endereco telefone;
 
 profissional: 'profissional' ':' cadeia=CADEIA;
 
-crn: 'CRN' '-' NUM_INT num_identificador;
+crn: 'CRN' '-' digito=NUM_INT num_identificador;
 
-num_identificador: NUM_INT;
+num_identificador: identificador=NUM_INT;
 
-especialidade: 'especialidade' ':' CADEIA;
+especialidade: 'especialidade' ':' cadeia=CADEIA;
 
 cliente: 'cliente' ':' cadeia=CADEIA;
 
