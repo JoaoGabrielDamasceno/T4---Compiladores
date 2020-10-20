@@ -13,6 +13,7 @@ public class TabelaSimbolos {
     public void inserir(String nome) {
         EntradaTabelaSimbolos etds = new EntradaTabelaSimbolos();
         etds.nome = nome;
+        //etds.tipo = tipo;
         tabelaDeSimbolos.put(nome, etds);
     }
 

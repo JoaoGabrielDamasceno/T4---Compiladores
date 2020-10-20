@@ -318,10 +318,11 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class CrnContext extends ParserRuleContext {
-		public TerminalNode NUM_INT() { return getToken(linguagemDIETAParser.NUM_INT, 0); }
+		public Token digito;
 		public Num_identificadorContext num_identificador() {
 			return getRuleContext(Num_identificadorContext.class,0);
 		}
+		public TerminalNode NUM_INT() { return getToken(linguagemDIETAParser.NUM_INT, 0); }
 		public CrnContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -352,7 +353,7 @@ public class linguagemDIETAParser extends Parser {
 			setState(56);
 			match(T__3);
 			setState(57);
-			match(NUM_INT);
+			((CrnContext)_localctx).digito = match(NUM_INT);
 			setState(58);
 			num_identificador();
 			}
@@ -369,6 +370,7 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class Num_identificadorContext extends ParserRuleContext {
+		public Token identificador;
 		public TerminalNode NUM_INT() { return getToken(linguagemDIETAParser.NUM_INT, 0); }
 		public Num_identificadorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -396,7 +398,7 @@ public class linguagemDIETAParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(60);
-			match(NUM_INT);
+			((Num_identificadorContext)_localctx).identificador = match(NUM_INT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -909,6 +911,9 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class Opcao_alimentosContext extends ParserRuleContext {
+		public AlimentosContext a1;
+		public AlimentosContext alimentos;
+		public List<AlimentosContext> outrosA1 = new ArrayList<AlimentosContext>();
 		public List<AlimentosContext> alimentos() {
 			return getRuleContexts(AlimentosContext.class);
 		}
@@ -942,7 +947,7 @@ public class linguagemDIETAParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(107);
-			alimentos();
+			((Opcao_alimentosContext)_localctx).a1 = alimentos();
 			setState(112);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -952,7 +957,8 @@ public class linguagemDIETAParser extends Parser {
 				setState(108);
 				match(T__15);
 				setState(109);
-				alimentos();
+				((Opcao_alimentosContext)_localctx).alimentos = alimentos();
+				((Opcao_alimentosContext)_localctx).outrosA1.add(((Opcao_alimentosContext)_localctx).alimentos);
 				}
 				}
 				setState(114);
@@ -973,6 +979,9 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class AlimentosContext extends ParserRuleContext {
+		public AlimentoContext a2;
+		public AlimentoContext alimento;
+		public List<AlimentoContext> outrosA2 = new ArrayList<AlimentoContext>();
 		public List<AlimentoContext> alimento() {
 			return getRuleContexts(AlimentoContext.class);
 		}
@@ -1006,7 +1015,7 @@ public class linguagemDIETAParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(115);
-			alimento();
+			((AlimentosContext)_localctx).a2 = alimento();
 			setState(120);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -1016,7 +1025,8 @@ public class linguagemDIETAParser extends Parser {
 				setState(116);
 				match(T__16);
 				setState(117);
-				alimento();
+				((AlimentosContext)_localctx).alimento = alimento();
+				((AlimentosContext)_localctx).outrosA2.add(((AlimentosContext)_localctx).alimento);
 				}
 				}
 				setState(122);
@@ -1037,6 +1047,7 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class AlimentoContext extends ParserRuleContext {
+		public Token cadeia;
 		public TerminalNode QUANTIDADE() { return getToken(linguagemDIETAParser.QUANTIDADE, 0); }
 		public TerminalNode CADEIA() { return getToken(linguagemDIETAParser.CADEIA, 0); }
 		public AlimentoContext(ParserRuleContext parent, int invokingState) {
@@ -1070,7 +1081,7 @@ public class linguagemDIETAParser extends Parser {
 			setState(124);
 			match(T__3);
 			setState(125);
-			match(CADEIA);
+			((AlimentoContext)_localctx).cadeia = match(CADEIA);
 			}
 			}
 		}

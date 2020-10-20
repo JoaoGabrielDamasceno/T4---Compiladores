@@ -18,6 +18,7 @@ ufscar\compiladores\linguagemdieta\linguagemDIETAListener.class
 ufscar\compiladores\linguagemdieta\linguagemDIETABaseListener.class
 ufscar\compiladores\linguagemdieta\linguagemDIETAParser$AlimentosContext.class
 ufscar\compiladores\linguagemdieta\linguagemDIETAParser$RodapeContext.class
+ufscar\compiladores\linguagemdieta\Escopos.class
 ufscar\compiladores\linguagemdieta\linguagemDIETAParser$CorpoContext.class
 ufscar\compiladores\linguagemdieta\linguagemDIETAParser$EnderecoContext.class
 ufscar\compiladores\linguagemdieta\linguagemDIETAParser$EspecialidadeContext.class

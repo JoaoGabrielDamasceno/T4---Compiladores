@@ -23,9 +23,9 @@ rodape: endereco telefone;
 
 profissional: 'profissional' ':' cadeia=CADEIA;
 
-crn: 'CRN' '-' NUM_INT num_identificador;
+crn: 'CRN' '-' digito=NUM_INT num_identificador;
 
-num_identificador: NUM_INT;
+num_identificador: identificador=NUM_INT;
 
 especialidade: 'especialidade' ':' CADEIA;
 
@@ -47,11 +47,11 @@ refeicao: 'refeicao' '{' ident_refeicao=nome_refeicao opcao_alimentos '}';
 
 nome_refeicao: IDENT ;
 
-opcao_alimentos : alimentos ('|' alimentos)*;
+opcao_alimentos : a1=alimentos ('|' outrosA1+=alimentos)*;
 
-alimentos: alimento ('+' alimento)*; 
+alimentos: a2=alimento ('+' outrosA2+=alimento)*; 
 
-alimento: (QUANTIDADE '-' CADEIA) ;
+alimento: (QUANTIDADE '-' cadeia=CADEIA) ;
 
 ERRO_CADEIA: '"' .*? {erro("Linha " + (getLine()) + ": cadeia literal nao fechada");};
 
