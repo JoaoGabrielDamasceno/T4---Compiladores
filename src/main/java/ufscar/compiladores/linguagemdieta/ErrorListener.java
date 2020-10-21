@@ -39,6 +39,9 @@ public class ErrorListener extends BaseErrorListener {
         x = x + 1;
         erroSintatico = true;
         }
+        if(erroSintatico == true){
+            System.out.println("Fim da compilacao");
+        }
              
     }
 }

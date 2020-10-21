@@ -26,22 +26,24 @@ public class Principal {
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             linguagemDIETAParser parser = new linguagemDIETAParser(tokens);
             
-            FichaContext arvore = parser.ficha();
-            DietaSemantico as = new DietaSemantico();
-            as.visitFicha(arvore);
-            //Registrando a classe ErrorListener na main()
             ErrorListener el = new ErrorListener(x);
             parser.addErrorListener(el);
             
-            if((as.erroSemantico == false) && (el.erroSintatico == false)){
-                GeradorHTML agc = new GeradorHTML();
-                agc.visitFicha(arvore);
-                try(PrintWriter pw = new PrintWriter(args[1])) {
-                    pw.print(agc.saida.toString());
+            if(el.erroSintatico == false) {
+                FichaContext arvore = parser.ficha();
+                DietaSemantico as = new DietaSemantico();
+                as.visitFicha(arvore);
+                
+                if(as.erroSemantico == false){
+                    GeradorHTML agc = new GeradorHTML();
+                    agc.visitFicha(arvore);
+                    try(PrintWriter pw = new PrintWriter(args[1])) {
+                        pw.print(agc.saida.toString());
+                    }
+                } else{
+                    //Adicionado output ao semantico
+                    System.out.println("Fim da compilacao"); 
                 }
-            } else{
-                //Chamando o simbolo inicial
-                System.out.println("Fim da compilacao"); 
             }
              
         } catch (IOException ex) {
@@ -49,7 +51,7 @@ public class Principal {
         }catch (ParseCancellationException ex){
             //Erros Lexicos
             System.out.println(ex.getMessage());
-            System.out.println("Fim da compilacao");  
+            System.out.println("Fim da compilacao");
         }
 
     }
