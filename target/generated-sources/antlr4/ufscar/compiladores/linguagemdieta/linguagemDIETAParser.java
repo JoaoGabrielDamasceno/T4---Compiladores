@@ -413,6 +413,7 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class EspecialidadeContext extends ParserRuleContext {
+		public Token cadeia;
 		public TerminalNode CADEIA() { return getToken(linguagemDIETAParser.CADEIA, 0); }
 		public EspecialidadeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -444,7 +445,7 @@ public class linguagemDIETAParser extends Parser {
 			setState(63);
 			match(T__1);
 			setState(64);
-			match(CADEIA);
+			((EspecialidadeContext)_localctx).cadeia = match(CADEIA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -506,6 +507,9 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class DataContext extends ParserRuleContext {
+		public Token dia;
+		public Token mes;
+		public Token ano;
 		public List<TerminalNode> NUM_INT() { return getTokens(linguagemDIETAParser.NUM_INT); }
 		public TerminalNode NUM_INT(int i) {
 			return getToken(linguagemDIETAParser.NUM_INT, i);
@@ -536,15 +540,15 @@ public class linguagemDIETAParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(70);
-			match(NUM_INT);
+			((DataContext)_localctx).dia = match(NUM_INT);
 			setState(71);
 			match(T__6);
 			setState(72);
-			match(NUM_INT);
+			((DataContext)_localctx).mes = match(NUM_INT);
 			setState(73);
 			match(T__6);
 			setState(74);
-			match(NUM_INT);
+			((DataContext)_localctx).ano = match(NUM_INT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -559,6 +563,7 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class EnderecoContext extends ParserRuleContext {
+		public Token cadeia;
 		public TerminalNode CADEIA() { return getToken(linguagemDIETAParser.CADEIA, 0); }
 		public EnderecoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -590,7 +595,7 @@ public class linguagemDIETAParser extends Parser {
 			setState(77);
 			match(T__1);
 			setState(78);
-			match(CADEIA);
+			((EnderecoContext)_localctx).cadeia = match(CADEIA);
 			}
 		}
 		catch (RecognitionException re) {
@@ -605,6 +610,8 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class TelefoneContext extends ParserRuleContext {
+		public Token digito1;
+		public Token digito2;
 		public DddContext ddd() {
 			return getRuleContext(DddContext.class,0);
 		}
@@ -640,11 +647,11 @@ public class linguagemDIETAParser extends Parser {
 			setState(80);
 			ddd();
 			setState(81);
-			match(NUM_INT);
+			((TelefoneContext)_localctx).digito1 = match(NUM_INT);
 			setState(82);
 			match(T__3);
 			setState(83);
-			match(NUM_INT);
+			((TelefoneContext)_localctx).digito2 = match(NUM_INT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -659,6 +666,7 @@ public class linguagemDIETAParser extends Parser {
 	}
 
 	public static class DddContext extends ParserRuleContext {
+		public Token digito3;
 		public TerminalNode NUM_INT() { return getToken(linguagemDIETAParser.NUM_INT, 0); }
 		public DddContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -688,7 +696,7 @@ public class linguagemDIETAParser extends Parser {
 			setState(85);
 			match(T__8);
 			setState(86);
-			match(NUM_INT);
+			((DddContext)_localctx).digito3 = match(NUM_INT);
 			setState(87);
 			match(T__9);
 			}

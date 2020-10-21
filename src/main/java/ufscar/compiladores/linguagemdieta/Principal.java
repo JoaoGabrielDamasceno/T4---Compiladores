@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -32,9 +33,17 @@ public class Principal {
             ErrorListener el = new ErrorListener(x);
             parser.addErrorListener(el);
             
-            //Chamando o simbolo inicial
-            System.out.println("Fim da compilacao");  
- 
+            if((as.erroSemantico == false) && (el.erroSintatico == false)){
+                GeradorHTML agc = new GeradorHTML();
+                agc.visitFicha(arvore);
+                try(PrintWriter pw = new PrintWriter(args[1])) {
+                    pw.print(agc.saida.toString());
+                }
+            } else{
+                //Chamando o simbolo inicial
+                System.out.println("Fim da compilacao"); 
+            }
+             
         } catch (IOException ex) {
             
         }catch (ParseCancellationException ex){

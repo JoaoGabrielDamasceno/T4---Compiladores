@@ -15,6 +15,7 @@ public class ErrorListener extends BaseErrorListener {
     
     //Estava printando varias linhas de erro sintatico, então a variavel "x" é para controle disso e printar só a primeira
     int x;
+    Boolean erroSintatico = false;
 
     public ErrorListener(int x) {
         this.x = x;
@@ -36,6 +37,7 @@ public class ErrorListener extends BaseErrorListener {
         if(x==0){
         System.out.println("Linha " + (i) + ": erro sintatico proximo a " + texto);
         x = x + 1;
+        erroSintatico = true;
         }
              
     }
