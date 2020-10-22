@@ -1,2 +1,0 @@
-[ERRO SEMANTICO]Linha 2: dígito do CRN inexistente, só pode ser de 1 a 10!
-Fim da compilacao

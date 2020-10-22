@@ -1,2 +1,0 @@
-[ERRO SEMANTICO]Linha 1: nome do profissional não  inserido!
-Fim da compilacao

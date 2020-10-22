@@ -1,2 +1,0 @@
-[ERRO SEMANTICO]Linha 4: nome do paciente não  inserido!
-Fim da compilacao

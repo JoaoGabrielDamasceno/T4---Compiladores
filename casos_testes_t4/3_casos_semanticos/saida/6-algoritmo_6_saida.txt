@@ -1,0 +1,2 @@
+[ERRO SEMANTICO]Linha 19: Alimento "maçã" já declarada na mesma opção da refeição!
+Fim da compilacao

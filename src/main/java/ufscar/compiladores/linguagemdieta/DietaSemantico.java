@@ -13,6 +13,7 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
     //String global_refeicao = null;
     Escopos escoposAninhados = new Escopos();
     TabelaSimbolos tabelas = new TabelaSimbolos();
+    Boolean erroSemantico = false;
     
     @Override
     public Void visitFicha(linguagemDIETAParser.FichaContext ctx) {
@@ -31,7 +32,7 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
         
         if(verificaNull.equals("\"\"")){
              System.out.println("[ERRO SEMANTICO]" + "Linha " + ctx.getStart().getLine() + ": nome do profissional não  inserido!");
-        
+             erroSemantico = true;
         }
     return null;
     }
@@ -42,7 +43,7 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
         
         if(verificaNull.equals("\"\"")){
              System.out.println("[ERRO SEMANTICO]" + "Linha " + ctx.getStart().getLine() + ": nome do paciente não  inserido!");
-        
+             erroSemantico = true;
         }
     return null;
     }
@@ -55,6 +56,7 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
         
         if((verificaCRN <= 0) || (verificaCRN >= 11)){
             System.out.println("[ERRO SEMANTICO]" + "Linha " + ctx.getStart().getLine() + ": dígito do CRN inexistente, só pode ser de 1 a 10!");
+            erroSemantico = true;
         }
         return null;
     }
@@ -72,6 +74,7 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
     public Void visitRefeicao(linguagemDIETAParser.RefeicaoContext ctx){
             if (tabelas.verificar(ctx.ident_refeicao.getText()) != null ) {
                 System.out.println("[ERRO SEMANTICO]" + "Linha" + ctx.ident_refeicao.getStart().getLine() + ":" + "Refeição " + ctx.ident_refeicao.getText() + " já declarada!");
+                erroSemantico = true;
             } else {
          
             tabelas.inserir(ctx.ident_refeicao.getText());
@@ -91,6 +94,7 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
         
          if (escopoAtual.verificar(ctx.a1.getText()) != null) {
             System.out.println("[ERRO SEMANTICO]" + "Linha "  + ctx.a1.getStart().getLine() + ":" + "Opção de alimentação " + ctx.a1.getText() + " já declarada na mesma refeição!");
+            erroSemantico = true;
          }
          else{
              escopoAtual.inserir(ctx.a1.getText());
@@ -103,7 +107,8 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
             for (linguagemDIETAParser.AlimentosContext alimentosCtx : ctx.outrosA1) {
                  if (escopoAtual.verificar(alimentosCtx.getText()) != null) {
                      System.out.println("[ERRO SEMANTICO]" + "Linha "  + alimentosCtx.getStart().getLine() + ":" + "Opção de alimentação " + alimentosCtx.getText() + " já declarada na mesma refeição!");
-                }
+                     erroSemantico = true;
+                 }
                 else{
                     escopoAtual.inserir(alimentosCtx.getText());    
                 }
@@ -123,7 +128,8 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
         
         if (escopoAtual.verificar(ctx.a2.cadeia.getText()) != null) {
                 System.out.println("[ERRO SEMANTICO]" + "Linha "  + ctx.a2.getStart().getLine() + ":" + " Alimento " + ctx.a2.cadeia.getText() + " já declarada na mesma opção da refeição!");
-         }
+                erroSemantico = true;
+        }
          else{
              escopoAtual.inserir(ctx.a2.cadeia.getText());
              
@@ -133,7 +139,8 @@ public class DietaSemantico extends linguagemDIETABaseVisitor<Object>{
             for (linguagemDIETAParser.AlimentoContext alimentoCtx : ctx.outrosA2) {
                  if (escopoAtual.verificar(alimentoCtx.cadeia.getText()) != null) {
                     System.out.println("[ERRO SEMANTICO]" + "Linha "  + alimentoCtx.getStart().getLine() + ":" + " Alimento " + alimentoCtx.cadeia.getText() + " já declarada na mesma opção da refeição!");
-                }
+                    erroSemantico = true;
+                 }
                 else{
                     escopoAtual.inserir(alimentoCtx.cadeia.getText());    
                 }

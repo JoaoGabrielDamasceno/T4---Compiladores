@@ -1,0 +1,34 @@
+profissional: "Dr. João"
+CRN-3 151515
+especialidade: "Nutrição Clínica"
+cliente: "Pedro Lucas"
+23/6/2020
+endereco: "Rua João 10, Bairro, Matão"
+(12)25254-3333 
+ 
+dieta
+refeicao{ 
+		Cafe_da_Manha
+		1u-"banana"+10g-"aveia"+10g-"mel"+2u-"torradas c/ pasta de amendoim" |
+		4u-"rodealas de batata doce"+15g-"creme de ricota"+1u-"maçã"
+}
+
+refeicao{
+		Almoco  
+		120g-"arroz"+200g-"carne"+1u-"banana"|
+		200g-"macarrão"+100g-"frango"+200g-"carne"
+}
+
+refeicao{ 
+		Cafe_da_Tarde
+		1u-"maça"+10g-"aveia"+10g-"mel"+2u-"torradas c/ pasta de amendoim" |
+		4u-"rodealas de batata doce"+15g-"creme de ricota"+1u-"maçã"
+}
+
+refeicao{ 
+		Janta
+		120g-"arroz"+200g-"carne"+1u-"banana" |
+		100g-"arroz"+150g-"carne"+1u-"maçã"
+}
+fim_dieta
+

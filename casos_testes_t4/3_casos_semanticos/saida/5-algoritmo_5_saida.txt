@@ -1,0 +1,2 @@
+[ERRO SEMANTICO]Linha 13:Opção de alimentação 200g-"macarrão"+100g-"frango"+200g-"carne" já declarada na mesma refeição!
+Fim da compilacao

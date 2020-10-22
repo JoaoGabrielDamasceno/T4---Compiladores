@@ -27,17 +27,17 @@ crn: 'CRN' '-' digito=NUM_INT num_identificador;
 
 num_identificador: identificador=NUM_INT;
 
-especialidade: 'especialidade' ':' CADEIA;
+especialidade: 'especialidade' ':' cadeia=CADEIA;
 
 cliente: 'cliente' ':' cadeia=CADEIA;
 
-data: NUM_INT '/' NUM_INT '/' NUM_INT; 
+data: dia=NUM_INT '/' mes=NUM_INT '/' ano=NUM_INT; 
 
-endereco: 'endereco' ':' CADEIA;
+endereco: 'endereco' ':' cadeia=CADEIA;
 
-telefone: ddd NUM_INT '-' NUM_INT;
+telefone: ddd digito1=NUM_INT '-' digito2=NUM_INT;
 
-ddd: '(' NUM_INT ')';
+ddd: '(' digito3=NUM_INT ')';
 
 dieta: 'dieta' corpo 'fim_dieta';
 

@@ -1,2 +1,0 @@
-Linha 12: erro sintatico proximo a 1u
-Fim da compilacao

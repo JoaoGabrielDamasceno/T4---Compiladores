@@ -1,2 +1,0 @@
-[ERRO SEMANTICO]Linha17:Refeição almoco já declarada!
-Fim da compilacao
