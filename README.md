@@ -45,7 +45,7 @@ Onde:
  
  exemplo: 
  ```
-java -jar C:\Users\joaog\Documents\NetBeansProjects\la-semantico\target\la-semantico-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Users\joaog\Desktop\programa2.txt C:\temp\saida.txt
+java -jar C:\Users\joaog\Documents\NetBeansProjects\linguagemdieta\target\linguagemDIETA-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Users\joaog\Desktop\programa2.txt C:\temp\saida.txt
  ```
  
  <h2>Casos de Testes</h2>
