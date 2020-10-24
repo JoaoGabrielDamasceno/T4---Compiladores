@@ -2,6 +2,9 @@
 
 Repositório destinado ao trabalho 4 da disciplina de compiladores ministrada pelo professor Daniel Lucrédio. O trabalho 4 da disciplina consiste em implementar um compilador completo para uma linguagem de sua escolha.
 
+<h2> Video de apresentação da linguagem </h2>
+<p> https://youtu.be/osWFJeFbRSo </p>
+
 <h2> Descrição da Linguagem</h2>
 <p>Escolhemos desenvolver uma linguagem voltada para a construção de uma ficha de dieta, feita por um profissional da área da nutrição.</p>
 <p>Dado o nome do profissional, CRN, especialidade, nome do cliente, data da emissão da ficha, endereço, telefone e a dieta, o programa retorna um arquivo HTML com a ficha completa.</p>
